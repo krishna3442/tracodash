@@ -13,12 +13,12 @@
             "root", "root");
     Statement st = con.createStatement();
     //ResultSet rs;
-    int i = st.executeUpdate("insert into linguistic(company, source, destination, price, contact,mail) values ('" + company + "','" + source + "','" + destination + "'," + price + "," + contact + ",'"+mail+"')");
+    int i = st.executeUpdate("insert into cab(company, source, destination, price, contact,mail) values ('" + company + "','" + source + "','" + destination + "'," + price + "," + contact + ",'"+mail+"')");
     if (i > 0) {
         //session.setAttribute("userid", user);
         response.sendRedirect("storemore.jsp");
        // out.print("Registration Successfull!"+"<a href='index.jsp'>Go to Login</a>");
     } else {
-        response.sendRedirect("linguistic.jsp");
+        response.sendRedirect("cab.jsp");
     }
 %>

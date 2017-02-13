@@ -10,7 +10,6 @@ ol, ul, li {list-style:none}
 
 :focus {outline:none}
 
-
 body,
 input,
 textarea,
@@ -27,13 +26,14 @@ body
 -o-background-size: cover;
 background-size: cover;
 }
+
 p {
   font-size: 12px;
   width: 150px;
   display: inline-block;
   margin-left: 18px;
 }
-h1,h3 {
+h1 {
   font-size: 32px;
   font-weight: 300;
   color: #4c4c4c;
@@ -49,7 +49,7 @@ html{
 .testbox {
   margin: 20px auto;
   width: 400px; 
-  height: 450px; 
+  height: 520px; 
   -webkit-border-radius: 8px/7px; 
   -moz-border-radius: 8px/7px; 
   border-radius: 8px/7px; 
@@ -117,7 +117,7 @@ hr{
   opacity: 0.3;
 }
 
-input[type=text],input[type=password],input[type=number]{
+input[type=text],input[type=password]{
   width: 250px; 
   height: 39px; 
   -webkit-border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
@@ -201,31 +201,35 @@ button:hover {
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 
 <div class="testbox">
-  <h1>Linguistic Registration</h1>
+  <h1>Registration</h1>
 
-  <form action="linguistic register.jsp" method="POST">
+  <form action="registration.jsp" method="POST">
+      <hr>
+      
+    <div class="accounttype">
+      <input type="radio" value="Cab" id="radioOne" name="account" />
+      <label for="radioOne" class="radio" chec>Cab</label>
+       <input type="radio" value="User" id="radioTwo" name="account" checked/>
+      <label for="radioTwo" class="radio" chec>User</label>
+      <input type="radio" value="Linguistic" id="radioThree" name="account" />
+      <label for="radioThree" class="radio">Linguistic</label>
+    </div>
       
   <hr>
-  <center><input type="text" name="cname" id="cname" placeholder="Company Name" required/>
-  </center>
-  <center>
-  <input type="text" name="from" id="from" placeholder="Source" required/>
-  </center>
-  <center>
-  <input type="text" name="to" id="to" placeholder="Destination" required/>
-  </center>
-  <center>
-  <input type="number" name="price" id="price" placeholder="Price" required/>
-  </center>
-  <center>
-  <input type="number" name="contact" id="contact" placeholder="Contact" required/>
-  </center>
-  <center>
-  <input type="text" name="mail" id="mail" placeholder="Mail" required/>
-  </center>
+   <label id="icon" ><i class="icon-user "></i></label>
+  <input type="text" name="fname" id="fname" placeholder="First Name" required/>
+   <label id="icon" ><i class="icon-user "></i></label>
+  <input type="text" name="lname" id="lname" placeholder="Last Name" required/>
+  <label id="icon" ><i class="icon-envelope "></i></label>
+  <input type="text" name="email" id="email" placeholder="Email" required/>
+  <label id="icon" ><i class="icon-user"></i></label>
+  <input type="text" name="uname" id="uname" placeholder="Username" required/>
+  <label id="icon" ><i class="icon-shield"></i></label>
+  <input type="password" name="pass" id="pass" placeholder="Password" required/>
   </hr>
+   <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
     <button class="button" name="subject" type="submit" value="Login">Register</button>
-    
+    </hr>
   </form>
   
 </div>

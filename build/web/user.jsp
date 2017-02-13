@@ -49,7 +49,7 @@ html{
 .testbox {
   margin: 20px auto;
   width: 400px; 
-  height: 450px; 
+  height: auto; 
   -webkit-border-radius: 8px/7px; 
   -moz-border-radius: 8px/7px; 
   border-radius: 8px/7px; 
@@ -117,7 +117,7 @@ hr{
   opacity: 0.3;
 }
 
-input[type=text],input[type=password],input[type=number]{
+input[type=text],input[type=password]{
   width: 250px; 
   height: 39px; 
   -webkit-border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
@@ -196,37 +196,11 @@ button:hover {
 
 
 </style>
-<body>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
-
+<body>
 <div class="testbox">
-  <h1>Linguistic Registration</h1>
-
-  <form action="linguistic register.jsp" method="POST">
-      
-  <hr>
-  <center><input type="text" name="cname" id="cname" placeholder="Company Name" required/>
-  </center>
-  <center>
-  <input type="text" name="from" id="from" placeholder="Source" required/>
-  </center>
-  <center>
-  <input type="text" name="to" id="to" placeholder="Destination" required/>
-  </center>
-  <center>
-  <input type="number" name="price" id="price" placeholder="Price" required/>
-  </center>
-  <center>
-  <input type="number" name="contact" id="contact" placeholder="Contact" required/>
-  </center>
-  <center>
-  <input type="text" name="mail" id="mail" placeholder="Mail" required/>
-  </center>
-  </hr>
-    <button class="button" name="subject" type="submit" value="Login">Register</button>
+    <h1>HEY <br> WELCOME USER.</h1>
     
-  </form>
-  
 </div>
 </body>
