@@ -49,7 +49,7 @@ html{
 .testbox {
   margin: 20px auto;
   width: 400px; 
-  height: auto; 
+  height: 450px; 
   -webkit-border-radius: 8px/7px; 
   -moz-border-radius: 8px/7px; 
   border-radius: 8px/7px; 

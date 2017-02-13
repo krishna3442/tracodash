@@ -1,3 +1,5 @@
+
+    
 <style>
     body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 
 pre, form, fieldset, input, textarea, p, blockquote, th, td { 
@@ -10,7 +12,6 @@ ol, ul, li {list-style:none}
 
 :focus {outline:none}
 
-
 body,
 input,
 textarea,
@@ -19,6 +20,7 @@ select {
   font-size: 16px;
   color: #4c4c4c;
 }
+
 body
 {
     background: url(city.gif) no-repeat center center fixed; 
@@ -33,7 +35,7 @@ p {
   display: inline-block;
   margin-left: 18px;
 }
-h1,h3 {
+h1 {
   font-size: 32px;
   font-weight: 300;
   color: #4c4c4c;
@@ -48,8 +50,8 @@ html{
 
 .testbox {
   margin: 20px auto;
-  width: 400px; 
-  height: auto; 
+  width: 343px; 
+  height: 300px; 
   -webkit-border-radius: 8px/7px; 
   -moz-border-radius: 8px/7px; 
   border-radius: 8px/7px; 
@@ -118,7 +120,7 @@ hr{
 }
 
 input[type=text],input[type=password]{
-  width: 250px; 
+  width: 200px; 
   height: 39px; 
   -webkit-border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
   -moz-border-radius: 0px 4px 4px 0px/0px 0px 4px 4px; 
@@ -154,7 +156,7 @@ input[type=password]{
 }
 
 .gender {
-  margin-left: 10px;
+  margin-left: 30px;
   margin-bottom: 30px;
 }
 
@@ -163,6 +165,27 @@ input[type=password]{
   margin-top: 20px;
 }
 
+a.button {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  padding: 6px 25px 0px 20px;
+  margin: 10px 8px 20px 0px;
+  display: inline-block;
+  float: right;
+  text-decoration: none;
+  width: 50px; height: 27px; 
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  border-radius: 5px; 
+  background-color: #3a57af; 
+  -webkit-box-shadow: 0 3px rgba(58,87,175,.75); 
+  -moz-box-shadow: 0 3px rgba(58,87,175,.75); 
+  box-shadow: 0 3px rgba(58,87,175,.75);
+  transition: all 0.1s linear 0s; 
+  top: 0px;
+  position: relative;
+}
 button {
   font-size: 14px;
   font-weight: 600;
@@ -172,7 +195,7 @@ button {
   display: inline-block;
   float: right;
   text-decoration: none;
-  width: 99px; height: 33px; 
+  width: 95px; height: 33px; 
   -webkit-border-radius: 5px; 
   -moz-border-radius: 5px; 
   border-radius: 5px; 
@@ -185,6 +208,14 @@ button {
   position: relative;
 }
 
+a.button:hover {
+  top: 3px;
+  background-color:#2e458b;
+  -webkit-box-shadow: none; 
+  -moz-box-shadow: none; 
+  box-shadow: none;
+  
+}
 button:hover {
   top: 3px;
   background-color:#2e458b;
@@ -200,7 +231,24 @@ button:hover {
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 <body>
 <div class="testbox">
-    <h1>HEY <br> WELCOME USER.</h1>
-    
+  <h1>Search</h1>
+  <form action="find.jsp" method="post">  
+       <div class="accounttype">
+      <input type="radio" value="Cab" id="radioOne" name="account" />
+      <label for="radioOne" class="radio" chec>Cab</label>
+      <input type="radio" value="Linguistic" id="radioThree" name="account" />
+      <label for="radioThree" class="radio">Linguistic</label>
+    </div>
+  <hr>
+  <center>
+  <input type="text" name="from" id="from" placeholder="Source"/>
+  </center>
+  <center>
+  <input type="text" name="to" id="to" placeholder="Destination" />
+  </center>  
+  <button type="submit">Find!</button>
+
+  </form>
+     
 </div>
 </body>
