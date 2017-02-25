@@ -78,16 +78,29 @@ Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
 %>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cabs</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="css/custom.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    </head>
 <h2 align="center"><font><strong>Retrieve data from database in jsp</strong></font></h2>
-<table align="center" cellpadding="5" cellspacing="5" border="1">
+<table class="table">
 <tr>
 
 </tr>
-<tr bgcolor="#A52A2A">
+<tr>
 
 <td><b>company</b></td>
 <td><b>source</b></td>
 <td><b>destination</b></td>
+<td><b>price</b></td>
 
 </tr>
 <%
@@ -95,6 +108,7 @@ try{
     String from = request.getParameter("from");
              String to = request.getParameter("to");
       String account = request.getParameter("account");
+      
 connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
 statement=connection.createStatement();
 String sql ="SELECT * FROM "+account+" where source='"+from+"'";
@@ -109,7 +123,7 @@ while(resultSet.next()){
 <td><%=resultSet.getString("company") %></td>
 <td><%=resultSet.getString("source") %></td>
 <td><%=resultSet.getString("destination") %></td>
-
+<td><%=resultSet.getString("price") %></td>
 
 </tr>
 
@@ -121,3 +135,4 @@ e.printStackTrace();
 }
 %>
 </table>
+</html>
