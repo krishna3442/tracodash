@@ -201,7 +201,7 @@ button:hover {
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 
 <div class="testbox">
-  <h1>Linguistic Registration</h1>
+  <h1>Logistic Registration</h1>
 
   <form action="linguistic register.jsp" method="POST">
       

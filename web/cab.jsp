@@ -215,7 +215,7 @@ button:hover {
   <input type="text" name="to" id="to" placeholder="Destination" required/>
   </center>
   <center>
-  <input type="number" name="price" id="price" placeholder="Price" required/>
+  <input type="number" name="price" id="price" placeholder="Price Per Km" required/>
   </center>
   <center>
   <input type="number" name="contact" id="contact" placeholder="Contact" required/>

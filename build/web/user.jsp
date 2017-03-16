@@ -237,7 +237,7 @@ button:hover {
       <input type="radio" value="Cab" id="radioOne" name="account" />
       <label for="radioOne" class="radio" chec>Cab</label>
       <input type="radio" value="Linguistic" id="radioThree" name="account" />
-      <label for="radioThree" class="radio">Linguistic</label>
+      <label for="radioThree" class="radio">Logistic</label>
     </div>
   <hr>
   <center>

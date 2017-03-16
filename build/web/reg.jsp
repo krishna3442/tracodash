@@ -212,7 +212,7 @@ button:hover {
        <input type="radio" value="User" id="radioTwo" name="account" checked/>
       <label for="radioTwo" class="radio" chec>User</label>
       <input type="radio" value="Linguistic" id="radioThree" name="account" />
-      <label for="radioThree" class="radio">Linguistic</label>
+      <label for="radioThree" class="radio">Logistic</label>
     </div>
       
   <hr>

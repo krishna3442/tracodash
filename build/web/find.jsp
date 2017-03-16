@@ -90,7 +90,7 @@ ResultSet resultSet = null;
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </head>
-<h2 align="center"><font><strong>Retrieve data from database in jsp</strong></font></h2>
+<h2 align="center"><font><strong>Your Service</strong></font></h2>
 <table class="table">
 <tr>
 
@@ -101,7 +101,8 @@ ResultSet resultSet = null;
 <td><b>source</b></td>
 <td><b>destination</b></td>
 <td><b>price</b></td>
-
+<td><b>contact</b></td>
+<td><b>mail</b></td>
 </tr>
 <%
 try{ 
@@ -124,6 +125,8 @@ while(resultSet.next()){
 <td><%=resultSet.getString("source") %></td>
 <td><%=resultSet.getString("destination") %></td>
 <td><%=resultSet.getString("price") %></td>
+<td><%=resultSet.getString("contact") %></td>
+<td><%=resultSet.getString("mail") %></td>
 
 </tr>
 
