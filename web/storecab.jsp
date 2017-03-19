@@ -2,8 +2,8 @@
 <%
     String company = request.getParameter("cname");    
     String source = request.getParameter("from");
-    String destination = request.getParameter("to");
-    String price = request.getParameter("price");
+    String ctype = request.getParameter("cab_type");
+
     String contact = request.getParameter("contact");
      String mail = request.getParameter("mail");
   
@@ -13,7 +13,7 @@
             "root", "root");
     Statement st = con.createStatement();
     //ResultSet rs;
-    int i = st.executeUpdate("insert into cab(company, source, destination, price, contact,mail) values ('" + company + "','" + source + "','" + destination + "'," + price + "," + contact + ",'"+mail+"')");
+    int i = st.executeUpdate("insert into cab(company, source, ctype,  contact,mail) values ('" + company + "','" + source + "','" + ctype + "'," + contact + ",'"+mail+"')");
     if (i > 0) {
         //session.setAttribute("userid", user);
         response.sendRedirect("storemore.jsp");

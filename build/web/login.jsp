@@ -18,11 +18,11 @@
         //out.println("<a href='logout.jsp'>Log out</a>");    
       
         response.sendRedirect("success");
-  */ ResultSet rs1 = st.executeQuery("select account from members where uname='" + userid + "' and pass='" + pwd + "'");
+  */ session.setAttribute("userid", userid);
+        ResultSet rs1 = st.executeQuery("select account from members where uname='" + userid + "' and pass='" + pwd + "'");
           rs1.next();
           String a=rs1.getString(1);
-          
-          
+         
     //String a=rs1.getString("account");
     if(a.equals("Cab"))
                  {

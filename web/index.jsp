@@ -189,7 +189,7 @@
                     <img src="img/contact.jpg" alt="">
                   </div>
                   <div class="s-12 m-12 l-4 margin-bottom right-align">
-                     <h3>Bla Bla Bla</h3>
+                     <h3>Our Den:</h3>
                      <address>
                         <p><strong>Adress:</strong> SRM University, Chennai, Tamil Nadu</p>
                         <p><strong>Country:</strong> INDIA</p>
