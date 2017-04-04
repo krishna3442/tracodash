@@ -1,5 +1,10 @@
 <%@ page import ="java.sql.*" %>
 <%
+if(session.getAttribute("userid") == null){
+    response.sendRedirect("index1.jsp");
+}
+String userid=(String)session.getAttribute("userid");
+
     String company = request.getParameter("cname");    
     String source = request.getParameter("from");
     String ctype = request.getParameter("cab_type");
@@ -13,7 +18,7 @@
             "root", "root");
     Statement st = con.createStatement();
     //ResultSet rs;
-    int i = st.executeUpdate("insert into cab(company, source, ctype,  contact,mail) values ('" + company + "','" + source + "','" + ctype + "'," + contact + ",'"+mail+"')");
+    int i = st.executeUpdate("insert into cab(uname,company, source, ctype,  contact,mail) values ('"+userid+"','" + company + "','" + source + "','" + ctype + "'," + contact + ",'"+mail+"')");
     if (i > 0) {
         //session.setAttribute("userid", user);
         response.sendRedirect("storemore.jsp");

@@ -76,7 +76,7 @@
                <p>We love you!</p>
             </div>
             <div class="s-12 l-6">
-               <a class="right" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design and coding<br> by Team Paradox</a>
+               <a class="right" href="#" title="Responsee - lightweight responsive framework">Design and coding<br> by Team Paradox</a>
             </div>
          </div>
           </div>
@@ -84,6 +84,7 @@
           <div class="signup">
           <div class="testbox">
               <center><h1>Login</h1></center>
+              
  <form class = "form-horizontal" role = "form" autocomplete="off" action="login.jsp" method="post">
    
    <div class = "form-group">
@@ -95,7 +96,7 @@
    </div>
    
    <div class = "form-group">
-      <label for = "lastname" class = "col-sm-5 control-label">Password:</label>
+      <label for = "lastname" class = "col-sm-5 control-label">Password</label>
 		
       <div class = "col-sm-6">
           <input type = "password" class = "form-control" id = "pass" name="pass" placeholder = "Enter Password" autocomplete="new-password" required>
@@ -109,6 +110,11 @@
          <button type = "submit" class = "btn btn-default">Sign in</button>
       </div>
    </div>
+     <div class = "form-group">
+      <div class = "col-sm-offset-5 col-sm-10">
+          <a href="guest-login.jsp" class = "btn btn-default">Log in as a Guest</a>
+      </div>
+   </div>
     
 	
 </form>
@@ -119,6 +125,7 @@
       </div>
    </div>
               </div>
+               
      
 </div>
           </div>

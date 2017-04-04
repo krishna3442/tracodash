@@ -2,6 +2,10 @@
 if(session.getAttribute("userid") == null){
     response.sendRedirect("index1.jsp");
 }
+if(session.getAttribute("userid") =="guest"){
+    request.setAttribute("req","Please register to continue");
+     //response.sendRedirect("index1.jsp");
+}
 %>
 <style>
     .footer {
@@ -92,7 +96,7 @@ padding-bottom:100px;
                <p>We love you!</p>
             </div>
             <div class="s-12 l-6">
-               <a class="right" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design and coding<br> by Team Paradox</a>
+               <a class="right" href="#" title="Responsee - lightweight responsive framework">Design and coding<br> by Team Paradox</a>
             </div>
          </div>
           </div>
@@ -122,6 +126,13 @@ ResultSet resultSet = null;
 %>
 <div class="testbox">
 <h2 align="center"><font><strong>Your Service</strong></font></h2>
+<h4 align="center"><% 
+if(request.getAttribute("req") !=null){
+String s=(String)request.getAttribute("req");
+out.println(s);
+}
+%>
+</h4>
 <table  class="table table-hover">
 <tr>
 
@@ -130,7 +141,7 @@ ResultSet resultSet = null;
 
 <td><b>company</b></td>
 <td><b>source</b></td>
-<td><b>service</b></td>
+<td><b>area/locality</b></td>
 <td><b>contact</b></td>
 <td><b>mail</b></td>
 </tr>
@@ -156,14 +167,7 @@ while(resultSet.next()){
 <td><%=resultSet.getString("service") %></td>
 <td><%=resultSet.getString("contact") %></td>
 <td><%=resultSet.getString("mail") %></td>
-<td>
-            <form action="test.jsp" method="get">
-                <input type="hidden" name="company" value="<%=resultSet.getString("company")%>" />
-                <input type="hidden" name="source" value="<%=resultSet.getString("source")%>" />
-                <input type="hidden" name="ctype" value="<%=resultSet.getString("service")%>" />
-                <input type="submit" value="Remove" name="remove" class="btn btn-default">
-            </form>
-        </td>
+
 </tr>
 
 <% 
@@ -174,6 +178,12 @@ e.printStackTrace();
 }
 %>
 </table>
+<button type="button" class="btn btn-default btn-arrow-left"  onclick="goBack()">Back</button>
 </div>
    </body>
 </html>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

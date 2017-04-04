@@ -41,6 +41,7 @@
     else 
     {
           response.sendRedirect("index1.jsp");
+          //session.setAttribute("error", "Invalid user or password");
     }                
 %>
      

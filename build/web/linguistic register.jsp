@@ -1,5 +1,9 @@
 <%@ page import ="java.sql.*" %>
 <%
+if(session.getAttribute("userid") == null){
+    response.sendRedirect("index1.jsp");
+}
+String userid=(String)session.getAttribute("userid");
     String company = request.getParameter("cname");    
     String source = request.getParameter("from");
     String s_type = request.getParameter("s_type");
@@ -13,7 +17,7 @@
             "root", "root");
     Statement st = con.createStatement();
     //ResultSet rs;
-    int i = st.executeUpdate("insert into linguistic(company, source, service, contact,mail) values ('" + company + "','" + source + "','" + s_type + "'," + contact + ",'"+mail+"')");
+    int i = st.executeUpdate("insert into linguistic(uname,company, source, service, contact,mail) values ('"+userid+"','" + company + "','" + source + "','" + s_type + "'," + contact + ",'"+mail+"')");
     if (i > 0) {
         //session.setAttribute("userid", user);
         response.sendRedirect("storemore.jsp");

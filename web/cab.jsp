@@ -67,7 +67,9 @@ if(session.getAttribute("userid") == null){
                   <p class="nav-text">Custom menu text</p>
                   <ul class="right">
                      <li><a href="index.jsp">Home</a></li>
+                      <li><a href="history cab.jsp">History</a></li>
                      <li class="active-item"><a href="logout.jsp">Logout</a></li>
+                     
                   </ul>
                </div>
             </div>

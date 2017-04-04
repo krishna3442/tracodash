@@ -2,10 +2,7 @@
 if(session.getAttribute("userid") == null){
     response.sendRedirect("index1.jsp");
 }
-if(session.getAttribute("userid") =="guest"){
-    request.setAttribute("req","Please register to continue");
-     //response.sendRedirect("index1.jsp");
-}
+String userid=(String)session.getAttribute("userid");
 %>
 <style>
     .footer {
@@ -69,6 +66,14 @@ padding-bottom:100px;
 	      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
       <![endif]-->
+      <script language="javascript">
+function editRecord(id){
+    var f=document.form;
+    f.method="post";
+    f.action='edit.jsp?id='+id;
+    f.submit();
+}
+</script>
    </head>
    <body class="size-1140">
       <!-- TOP NAV WITH LOGO -->
@@ -96,7 +101,7 @@ padding-bottom:100px;
                <p>We love you!</p>
             </div>
             <div class="s-12 l-6">
-               <a class="right" href="#" title="Responsee - lightweight responsive framework">Design and coding<br> by Team Paradox</a>
+               <a class="right" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design and coding<br> by Team Paradox</a>
             </div>
          </div>
           </div>
@@ -126,13 +131,6 @@ ResultSet resultSet = null;
 %>
 <div class="testbox">
 <h2 align="center"><font><strong>Your Service</strong></font></h2>
-<h4 align="center"><% 
-if(request.getAttribute("req") !=null){
-String s=(String)request.getAttribute("req");
-out.println(s);
-}
-%>
-</h4>
 <table  class="table table-hover">
 <tr>
 
@@ -140,10 +138,11 @@ out.println(s);
 <tr>
 
 <td><b>company</b></td>
-<td><b>source</b></td>
 <td><b>area/locality</b></td>
+<td><b>service</b></td>
 <td><b>contact</b></td>
 <td><b>mail</b></td>
+<td><b>Remove</b></td>
 </tr>
 <%
 try{ 
@@ -153,24 +152,27 @@ try{
       
 connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
 statement=connection.createStatement();
-String sql ="SELECT * FROM linguistic where source='"+from+"' and service='"+cab_type+"'";
+String sql ="SELECT * FROM cab where uname='"+userid+"'";
 
 resultSet = statement.executeQuery(sql);
 
 while(resultSet.next()){
 %>
 <tr>
-
-
 <td><%=resultSet.getString("company") %></td>
 <td><%=resultSet.getString("source") %></td>
-<td><%=resultSet.getString("service") %></td>
+<td><%=resultSet.getString("ctype") %></td>
 <td><%=resultSet.getString("contact") %></td>
 <td><%=resultSet.getString("mail") %></td>
 
-</tr>
+<TD><input type="button" name="edit" value="Edit" onClick="javascript:window.location='editData.jsp';" style="background-color:#49743D;font-weight:bold;color:#ffffff;">
+ 
+                </TD>
+                <TD><input type="button" name="delete" value="Delete" onClick="javascript:window.location='deleteData.jsp';"style="background-color:#ff0000;font-weight:bold;color:#ffffff;"></TD>
+            </tr>
 
 <% 
+
 }
 
 } catch (Exception e) {
@@ -178,7 +180,9 @@ e.printStackTrace();
 }
 %>
 </table>
-<button type="button" class="btn btn-default btn-arrow-left"  onclick="goBack()">Back</button>
+<br/>
+
+<button type="button" class="btn"  onclick="goBack()" >Back</button>
 </div>
    </body>
 </html>
@@ -186,4 +190,6 @@ e.printStackTrace();
 function goBack() {
     window.history.back();
 }
+
+</script>
 </script>

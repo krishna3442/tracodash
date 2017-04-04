@@ -1,3 +1,6 @@
+<%
+session.setAttribute("userid","guest");
+%>
 <style>
     .footer {
   position: absolute;
@@ -10,7 +13,18 @@
 }
 .testbox
 {
-    padding-top: 70px;
+padding-bottom:100px;
+    margin: 10px auto;
+  width: 500px; 
+  height: 100px; 
+  -webkit-border-radius: 8px/7px; 
+  -moz-border-radius: 8px/7px; 
+  border-radius: 8px/7px; 
+  
+}
+.testbox1
+{
+    padding-top: 50px;
     margin: 20px auto;
   width: 500px; 
   height: 300px; 
@@ -19,7 +33,6 @@
   border-radius: 8px/7px; 
   
 }
-
 
 </style>
 <!DOCTYPE html>
@@ -62,7 +75,7 @@
                   <p class="nav-text">Custom menu text</p>
                   <ul class="right">
                      <li><a href="index.jsp">Home</a></li>
-                     <li class="active-item"><a href="#carousel">Login/Signup</a></li>
+                     <li class="active-item"><a href="logout.jsp">Logout</a></li>
                   </ul>
                </div>
             </div>
@@ -76,120 +89,103 @@
                <p>We love you!</p>
             </div>
             <div class="s-12 l-6">
-               <a class="right" href="#" title="Responsee - lightweight responsive framework">Design and coding<br> by Team Paradox</a>
+               <a class="right" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design and coding<br> by Team Paradox</a>
             </div>
          </div>
           </div>
+      <div class="testbox1">
+          <center> <h2>Find:</h2></center>
+              <div id="shbtn">
+    <div class = "form-group">
+      <div class = "col-sm-offset-5 col-sm-10">
+          <button class = "btn btn-default">Logistics</button><br>
+      </div>
+   </div>
+              </div>
+               <div id="shbtn2">
+    <div class = "form-group">
+      <div class = "col-sm-offset-5 col-sm-10">
+          <br><button class = "btn btn-default">Cab</button>
+      </div>
+   </div>
+              </div>
+          </div>
       <section>
-          <div class="signup">
+          
+          <div class="signup" style="display:none;padding-top: -70px">
           <div class="testbox">
-              <center><h1>Login</h1></center>
-              <center><h3>Invalid Login!</h3></center>
- <form class = "form-horizontal" role = "form" autocomplete="off" action="login.jsp" method="post">
+              <center><h1>Cab</h1></center>
+ <form class = "form-horizontal" role = "form" autocomplete="off" action="find cab.jsp" method="post">
    
    <div class = "form-group">
-      <label for = "uname" class = "col-sm-5 control-label">User Name</label>
+      <label for = "uname" class = "col-sm-5 control-label">Area</label>
 		
       <div class = "col-sm-6">
-          <input type = "text" class = "form-control" id = "uname" name="uname" placeholder = "Enter User Name"  required>
+          <input type = "text" class = "form-control" id = "from" name="from" placeholder = "Enter Area"  required>
       </div>
    </div>
    
    <div class = "form-group">
-      <label for = "lastname" class = "col-sm-5 control-label">Password:</label>
+      <label for = "cab_type" class = "col-sm-5 control-label">Cab Type</label>
 		
       <div class = "col-sm-6">
-          <input type = "password" class = "form-control" id = "pass" name="pass" placeholder = "Enter Password" autocomplete="new-password" required>
-      </div>
-   </div>
+      <select name="cab_type" class = "form-control">
+          <option value="prime">Prime</option>
+          <option value="mini">Mini</option>
+          <option value="micro">Micro</option>
+          <option value="suv">SUV</option>
+      </select>
+  </div>
+  </div>
    
  
    
    <div class = "form-group">
       <div class = "col-sm-offset-5 col-sm-10">
-         <button type = "submit" class = "btn btn-default">Sign in</button>
+         <button type = "submit" class = "btn btn-default">Find!</button>
       </div>
    </div>
     
 	
 </form>
-              <div id="shbtn">
-    <div class = "form-group">
-      <div class = "col-sm-offset-5 col-sm-10">
-          <button class = "btn btn-default">Register</button>
-      </div>
-   </div>
-              </div>
+              
      
 </div>
           </div>
-          <div class="reg" style="display:none">
-              <div class="testbox">
-              <center><h1>Sign up</h1></center>
- <form class = "form-horizontal" role = "form" autocomplete="off" action="registration.jsp" method="post">
-     <center>
-   <label class="radio-inline">
-       <input type="radio" value="Cab" name="account" checked>Cab
-    </label>
-    <label class="radio-inline">
-      <input type="radio" value="User" name="account">User
-    </label>
-    <label class="radio-inline">
-      <input type="radio" value="Linguistic" name="account">Logistics
-    </label>
-     </center><br>
-        <div class = "form-group">
-      <label for = "fname" class = "col-sm-5 control-label">First Name</label>
-		
-      <div class = "col-sm-6">
-          <input type = "text" class = "form-control" id = "fname" name="fname" placeholder = "Enter First Name"  required>
-      </div>
-   </div>
-        <div class = "form-group">
-      <label for = "lname" class = "col-sm-5 control-label">Last Name</label>
-		
-      <div class = "col-sm-6">
-          <input type = "text" class = "form-control" id = "lname" name="lname" placeholder = "Enter Last Name"  required>
-      </div>
-   </div>
-        <div class = "form-group">
-      <label for = "email" class = "col-sm-5 control-label">Email</label>
-		
-      <div class = "col-sm-6">
-          <input type = "email" class = "form-control" id = "email" name="email" placeholder = "Enter email"  required>
-      </div>
-   </div>
-   <div class = "form-group">
-      <label for = "uname" class = "col-sm-5 control-label">User Name</label>
-		
-      <div class = "col-sm-6">
-          <input type = "text" class = "form-control" id = "uname" name="uname" placeholder = "Enter User Name"  required>
-      </div>
-   </div>
+          <div class="logistics" style="display:none">
+          <div class="testbox">
+              <center><h1>Logistics</h1></center>
+ <form class = "form-horizontal" role = "form" autocomplete="off" action="find.jsp" method="post">
    
    <div class = "form-group">
-      <label for = "lastname" class = "col-sm-5 control-label">Password</label>
+      <label for = "uname" class = "col-sm-5 control-label">Area</label>
 		
       <div class = "col-sm-6">
-         <input type = "password" class = "form-control" id = "pass" name="pass" placeholder = "Enter Password" autocomplete="new-password"  required>
+          <input type = "text" class = "form-control" id = "from" name="from" placeholder = "Enter Area/Locality"  required>
       </div>
    </div>
-   
+<div class = "form-group">
+      <label for = "s_type" class = "col-sm-5 control-label">Service Type</label>
+		
+      <div class = "col-sm-6">
+      <select name="s_type" class = "form-control">
+          <option value="Outbound transportation">Outbound transportation</option>
+          <option value="Customs Clearance">Customs Clearance</option>
+          <option value="Freight Bill Auditing/Payment">Freight Bill Auditing/Payment</option>
+      </select>
+  </div>
+  </div>
  
    
-
-     <div class = "form-group">
-      <div class = "col-sm-offset-5 col-sm-10">
-          <button type = "submit" class = "btn btn-default">Register</button>
-      </div>
-   </div>
-	
-</form>
    <div class = "form-group">
       <div class = "col-sm-offset-5 col-sm-10">
-          <button class = "btn btn-default" id="shbtn2">Sign in</button>
+         <button type = "submit" class = "btn btn-default">Find!</button>
       </div>
    </div>
+    
+	
+</form>
+             
      
 </div>
           </div>
@@ -199,10 +195,10 @@
           $(document).ready(function(){
     $("#shbtn").click(function(){
         $(".signup").hide('slow');
-        $(".reg").show('slow');
+        $(".logistics").show('slow');
     });
     $("#shbtn2").click(function(){
-        $(".reg").hide('slow');
+        $(".logistics").hide('slow');
         $(".signup").show('slow');
     });
 });
