@@ -6,6 +6,9 @@ if(session.getAttribute("userid") =="guest"){
     request.setAttribute("req","Please register to continue");
      //response.sendRedirect("index1.jsp");
 }
+response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+response.setHeader("Pragma","no-cache");
+response.setDateHeader("Expires", 0);
 %>
 <style>
     .footer {

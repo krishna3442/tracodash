@@ -3,6 +3,9 @@
 if(session.getAttribute("userid") == null){
     response.sendRedirect("index1.jsp");
 }
+response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+response.setHeader("Pragma","no-cache");
+response.setDateHeader("Expires", 0);
 String userid=(String)session.getAttribute("userid");
 
     String company = request.getParameter("cname");    
@@ -18,7 +21,7 @@ String userid=(String)session.getAttribute("userid");
             "root", "root");
     Statement st = con.createStatement();
     //ResultSet rs;
-    int i = st.executeUpdate("insert into cab(uname,company, source, ctype,  contact,mail) values ('"+userid+"','" + company + "','" + source + "','" + ctype + "'," + contact + ",'"+mail+"')");
+    int i = st.executeUpdate("insert into cab(uname,company, source, ctype,  contact,mail,status) values ('"+userid+"','" + company + "','" + source + "','" + ctype + "'," + contact + ",'"+mail+"','unbooked')");
     if (i > 0) {
         //session.setAttribute("userid", user);
         response.sendRedirect("storemore.jsp");

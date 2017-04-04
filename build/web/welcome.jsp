@@ -2,6 +2,9 @@
 if(session.getAttribute("userid") == null){
     response.sendRedirect("index1.jsp");
 }
+response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+response.setHeader("Pragma","no-cache");
+response.setDateHeader("Expires", 0);
 %>
 <style>
     body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 

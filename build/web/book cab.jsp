@@ -21,8 +21,8 @@
    {
        try{
     
- st.executeUpdate("DELETE FROM cab WHERE id = "+id+"");
-    response.sendRedirect("history cab.jsp");
+ st.executeUpdate("UPDATE cab SET status='booked' WHERE id="+id);
+    response.sendRedirect("find cab.jsp");
       }
       
 catch(Exception e){

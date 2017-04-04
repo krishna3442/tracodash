@@ -2,6 +2,9 @@
 if(session.getAttribute("userid") == null){
     response.sendRedirect("index1.jsp");
 }
+response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+response.setHeader("Pragma","no-cache");
+response.setDateHeader("Expires", 0);
 String userid=(String)session.getAttribute("userid");
 %>
 <style>
@@ -87,7 +90,7 @@ function editRecord(id){
                   <p class="nav-text">Custom menu text</p>
                   <ul class="right">
                      <li><a href="index.jsp">Home</a></li>
-                     <li class="active-item"><a href="#carousel">Login/Signup</a></li>
+                     <li class="active-item"><a href="logout.jsp">Logout</a></li>
                   </ul>
                </div>
             </div>
@@ -142,6 +145,7 @@ ResultSet resultSet = null;
 <td><b>service</b></td>
 <td><b>contact</b></td>
 <td><b>mail</b></td>
+<td><b>status</b></td>
 <td><b>Remove</b></td>
 </tr>
 <%
@@ -164,11 +168,21 @@ while(resultSet.next()){
 <td><%=resultSet.getString("ctype") %></td>
 <td><%=resultSet.getString("contact") %></td>
 <td><%=resultSet.getString("mail") %></td>
+<td><%=resultSet.getString("status") %></td>
 
-<TD><input type="button" name="edit" value="Edit" onClick="javascript:window.location='editData.jsp';" style="background-color:#49743D;font-weight:bold;color:#ffffff;">
- 
-                </TD>
-                <TD><input type="button" name="delete" value="Delete" onClick="javascript:window.location='deleteData.jsp';"style="background-color:#ff0000;font-weight:bold;color:#ffffff;"></TD>
+<td>
+    <form action="delete-cab.jsp" method="get">
+        <input type="submit" name="delete" value="Delete" >
+        <input type="hidden" name="c_id" value="<%=resultSet.getString("id")%>" />
+    </form>
+</td>
+<td>
+    <form action="unbook cab.jsp" method="get">
+        <input type="submit" name="delete" value="Change Status" >
+        <input type="hidden" name="c_id" value="<%=resultSet.getString("id")%>" />
+    </form>
+</td>
+
             </tr>
 
 <% 
@@ -188,7 +202,7 @@ e.printStackTrace();
 </html>
 <script>
 function goBack() {
-    window.history.back();
+    window.history.back("cab.jsp");
 }
 
 </script>

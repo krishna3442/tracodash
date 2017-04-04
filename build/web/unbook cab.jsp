@@ -21,7 +21,7 @@
    {
        try{
     
- st.executeUpdate("DELETE FROM cab WHERE id = "+id+"");
+ st.executeUpdate("UPDATE cab SET status = CASE WHEN status = 'unbooked' THEN 'booked' ELSE 'unbooked' END where id="+id);
     response.sendRedirect("history cab.jsp");
       }
       

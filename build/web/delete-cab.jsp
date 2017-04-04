@@ -11,12 +11,11 @@
     //ResultSet rs;
     String id="";
 
-        String r=(String)request.getAttribute("delete_user");
+        String r=(String)request.getParameter("c_id");
+        String q=(String)request.getAttribute("delete");
    id = r;
-  
-  
-      //  out.print(e);
-        out.print(request.getAttribute("id"));
+      out.print(id+q);
+        out.print(request.getAttribute("c_id"));
     
    if (id!=null) 
    {

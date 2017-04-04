@@ -6,6 +6,9 @@ if(session.getAttribute("userid") =="guest"){
     request.setAttribute("req","Please register to continue");
      //response.sendRedirect("index1.jsp");
 }
+response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+response.setHeader("Pragma","no-cache");
+response.setDateHeader("Expires", 0);
 %>
 <style>
     .footer {
@@ -154,7 +157,7 @@ try{
       
 connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
 statement=connection.createStatement();
-String sql ="SELECT * FROM cab where source='"+from+"' and ctype='"+cab_type+"'";
+String sql ="SELECT * FROM cab where source='"+from+"' and ctype='"+cab_type+"' and status='unbooked'";
 
 resultSet = statement.executeQuery(sql);
 
@@ -168,7 +171,12 @@ while(resultSet.next()){
 <td><%=resultSet.getString("ctype") %></td>
 <td><%=resultSet.getString("contact") %></td>
 <td><%=resultSet.getString("mail") %></td>
-
+<td>
+    <form action="book cab.jsp" method="get">
+        <input type="submit" name="delete" value="Book" >
+        <input type="hidden" name="c_id" value="<%=resultSet.getString("id")%>" />
+    </form>
+</td>
 </tr>
 
 <% 
@@ -186,6 +194,6 @@ e.printStackTrace();
 
 <script>
 function goBack() {
-    window.history.back();
+    window.history.back("user.jsp");
 }
 </script>

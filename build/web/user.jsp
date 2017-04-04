@@ -2,6 +2,9 @@
 if(session.getAttribute("userid") == null){
     response.sendRedirect("index1.jsp");
 }
+response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+response.setHeader("Pragma","no-cache");
+response.setDateHeader("Expires", 0);
 %>
 <style>
     .footer {
@@ -145,6 +148,7 @@ padding-bottom:100px;
    <div class = "form-group">
       <div class = "col-sm-offset-5 col-sm-10">
          <button type = "submit" class = "btn btn-default">Find!</button>
+         <button type="button" class="btn btn-default" onclick="showPosition();">Ur Loc</button>
       </div>
    </div>
     
@@ -163,8 +167,9 @@ padding-bottom:100px;
       <label for = "uname" class = "col-sm-5 control-label">Area</label>
 		
       <div class = "col-sm-6">
-          <input type = "text" class = "form-control" id = "from" name="from" placeholder = "Enter Area/Locality"  required>
+          <input type = "text" class = "form-control" id = "from2" name="from2" placeholder = "Enter Area/Locality"  required>
       </div>
+       
    </div>
 <div class = "form-group">
       <label for = "s_type" class = "col-sm-5 control-label">Service Type</label>
@@ -177,11 +182,13 @@ padding-bottom:100px;
       </select>
   </div>
   </div>
+    
  
    
    <div class = "form-group">
       <div class = "col-sm-offset-5 col-sm-10">
          <button type = "submit" class = "btn btn-default">Find!</button>
+         <button type="button" class="btn btn-default" onclick="showPosition();">Ur Loc</button>
       </div>
    </div>
     
@@ -232,6 +239,86 @@ padding-bottom:100px;
                 theme_slider.trigger('owl.prev');
             })     
         }); 
+        var result;
+    
+    function showPosition(){
+        // Store the element where the page displays the result
+        result = document.getElementById("result");
+        
+        // If geolocation is available, try to get the visitor's position
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+            result.innerHTML = "Getting the position information...";
+        } else{
+            alert("Sorry, your browser does not support HTML5 geolocation.");
+        }
+    };
+    
+    // Define callback function for successful attempt
+    function successCallback(position){
+        result.innerHTML = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
+        displayLocation(position.coords.latitude,position.coords.longitude)
+    }
+    
+    // Define callback function for failed attempt
+    function errorCallback(error){
+        if(error.code == 1){
+            result.innerHTML = "You've decided not to share your position, but it's OK. We won't ask you again.";
+        } else if(error.code == 2){
+            result.innerHTML = "The network is down or the positioning service can't be reached.";
+        } else if(error.code == 3){
+            result.innerHTML = "The attempt timed out before it could get the location data.";
+        } else{
+            result.innerHTML = "Geolocation failed due to unknown error.";
+        }
+    }
+    function displayLocation(latitude,longitude){
+        var request = new XMLHttpRequest();
+
+        var method = 'GET';
+        var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
+        var async = true;
+
+        request.open(method, url, async);
+        request.onreadystatechange = function(){
+          if(request.readyState == 4 && request.status == 200){
+            var data = JSON.parse(request.responseText);
+            var address = data.results[0];
+         
+            document.getElementById("from2").value =address.formatted_address;
+             document.getElementById("from").value =address.formatted_address;
+          }
+        };
+        request.send();
+      };
+
+      var successCallback = function(position){
+        var x = position.coords.latitude;
+        var y = position.coords.longitude;
+        displayLocation(x,y);
+      };
+
+      var errorCallback = function(error){
+        var errorMessage = 'Unknown error';
+        switch(error.code) {
+          case 1:
+            errorMessage = 'Permission denied';
+            break;
+          case 2:
+            errorMessage = 'Position unavailable';
+            break;
+          case 3:
+            errorMessage = 'Timeout';
+            break;
+        }
+        document.write(errorMessage);
+      };
+
+      var options = {
+        enableHighAccuracy: true,
+        timeout: 1000,
+        maximumAge: 0
+      };
       </script>
    </body>
 </html>
